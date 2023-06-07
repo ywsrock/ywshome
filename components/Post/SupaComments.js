@@ -7,7 +7,9 @@ const SupaComments = () => {
   useEffect(() => {
     const script = document.createElement('script')
     const anchor = document.getElementById('comments')
+    // script.setAttribute('src', `/comments/comments-${locale}.js`)
     script.setAttribute('src', `/comments/comments-${locale}.js`)
+
     script.setAttribute('crossorigin', 'anonymous')
     script.setAttribute('async', true)
     anchor.appendChild(script)

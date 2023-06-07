@@ -1,5 +1,5 @@
 const BLOG = {
-  title: 'Notionic',
+  title: 'Forever Eighteen',
   author: '左蓝',
   email: 'i@zuolan.me',
   link: 'https://zuolan.me',
@@ -34,7 +34,7 @@ const BLOG = {
     telegram: 'https://t.me/zuolan'
   },
   seo: {
-    keywords: ['Notionic', 'Zuolan', 'Blog'],
+    keywords: ['Notionic', 'ywsrock', 'Blog'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS! Edit .env file!
@@ -67,10 +67,10 @@ const BLOG = {
   },
   comment: {
     // support provider: utterances, supacomments
-    provider: '', // leave it empty if you don't need any comment plugin
+    provider: 'supacomments', // leave it empty if you don't need any comment plugin
     supaCommentsConfig: {
-      supabaseUrl: '', // The url of your Supabase instance
-      supabaseAnonKey: '' // The anonymous key of your Supabase instance
+      supabaseUrl: 'https://shcnefgqnyrkarlrbvgq.supabase.co', // The url of your Supabase instance
+      supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNoY25lZmdxbnlya2FybHJidmdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODYxMjMzMDgsImV4cCI6MjAwMTY5OTMwOH0.NvOF6l-elZUQyYI7ef4swygk05L4X8GE29qxAcIEKSk' // The anonymous key of your Supabase instance
     },
     utterancesConfig: {
       repo: ''
