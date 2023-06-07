@@ -1,8 +1,8 @@
 const BLOG = {
   title: 'Forever Eighteen',
-  author: '左蓝',
-  email: 'i@zuolan.me',
-  link: 'https://zuolan.me',
+  author: 'ywsrock',
+  email: 'ywsrock@gmail.com',
+  link: 'https://www.ywsrock.com/',
   newsletter: 'Notionic Weekly',
   description: 'A static blog build on top of Notion and Next.js',
   lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
@@ -30,7 +30,7 @@ const BLOG = {
   defaultCover: '/cover.jpg',
   socialLink: {
     twitter: 'https://twitter.com/izuolan',
-    github: 'https://github.com/izuolan',
+    github: 'https://github.com/ywsrock',
     telegram: 'https://t.me/zuolan'
   },
   seo: {
