@@ -3,7 +3,16 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/wechat-pay.png",
+      "source": "/wechat-qr.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/line-qr.png",
       "headers": [
         {
           "key": "Cache-Control",

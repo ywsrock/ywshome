@@ -4,7 +4,7 @@ const BLOG = {
   email: 'ywsrock@gmail.com',
   link: 'https://www.ywsrock.com',
   newsletter: 'Forever Eighteen',
-  description: '自由だけが、生きる意味だ',
+  description: '自由だけが、生きる意味だ!',
   lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
   timezone: 'Asia/Tokyo', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
@@ -19,19 +19,24 @@ const BLOG = {
     newsletter: true,
     notes: false,
     projects: true,
-    contact: true,
+    contact: false,
     books: true,
     friends: true
   },
-  showWeChatPay: true,
+  showWeChatFriend: true,
+  showLineFriend: true,
+  showContactButton: false,
+  showRssButton: false,
   previewImagesEnabled: true,
   autoCollapsedNavBar: false, // The automatically collapsed navigation bar
-  ogImageGenerateHost: 'og-zl.vercel.app', // The link to generate OG image, don't end with a slash
+  ogImageGenerateHost: 'https://www.ywsrock.com', // The link to generate OG image, don't end with a slash
   defaultCover: '/cover.jpg',
   socialLink: {
     twitter: 'https://twitter.com/home',
     github: 'https://github.com/ywsrock',
-    telegram: 'https://www.facebook.com/wenshuai.yan.9'
+    telegram: 'https://www.facebook.com/wenshuai.yan.9',
+    facebook: 'https://www.facebook.com/wenshuai.yan.9',
+    weibo: 'https://m.weibo.cn/u/1852560010?'
   },
   seo: {
     keywords: ['Notionic', 'ywsrock', 'Blog'],
@@ -42,8 +47,8 @@ const BLOG = {
   notionAccessToken: process.env.NOTION_ACCESS_TOKEN, // Useful if you prefer not to make your database public
   notionDomain: 'ywsrock.notion.site',
   telegramToken: process.env.TELEGRAM_TOKEN, // The token of your Telegram bot
-  telegramChatId: '263895784', // The chat id of your Telegram bot
-  telegramChannelUrl: 'https://channel.yws.me/', // The link of your Telegram channel
+  telegramChatId: '', // The chat id of your Telegram bot
+  telegramChannelUrl: '', // The link of your Telegram channel
   telegramChannelName: 'yws_me', // The name of your Telegram channel
   craftConfigShareUrl: 'https://www.craft.do/s/kQtcWqkv98cHhB', // The link to share your craft config
   analytics: {

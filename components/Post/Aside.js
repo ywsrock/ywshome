@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 import TableOfContents from '@/components/Post/TableOfContents'
-import WechatPay from '@/components/Post/WechatPay'
 import { ThumbUpIcon, ChevronLeftIcon, ArrowUpIcon } from '@heroicons/react/outline'
 
 const Aside = ({ pageTitle, blockMap, frontMatter }) => {
@@ -24,14 +23,6 @@ const Aside = ({ pageTitle, blockMap, frontMatter }) => {
       <aside className='hidden sticky md:flex md:flex-col md:items-center md:self-start md:ml-8 md:inset-y-1/2'>
         <div className='flex flex-col items-center text-center'>
           <div className='bg-gray-100 dark:bg-gray-700 grid rounded-lg block p-2 gap-y-5 nav'>
-            {BLOG.showWeChatPay && (
-              <button
-                onClick={() => setShowPay((showPay) => !showPay)}
-                className='text-gray-600 dark:text-day hover:text-gray-400 dark:hover:text-gray-400'
-              >
-                <ThumbUpIcon className='w-5 h-5' />
-              </button>
-            )}
             {pageTitle && (
               <Link
                 passHref
@@ -65,7 +56,9 @@ const Aside = ({ pageTitle, blockMap, frontMatter }) => {
           </div>
         )}
       </aside>
-      {showPay && <WechatPay />}
+
+      {/* {showPay && <WeChatFriend />} */}
+
       {showScrollElement && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

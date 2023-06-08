@@ -3,11 +3,14 @@ import { useState } from 'react'
 import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
 
-import WechatPay from '@/components/Post/WechatPay'
-import { MailIcon, ThumbUpIcon } from '@heroicons/react/outline'
+import WeChatFriend from '@/components/Post/WeChatFriend'
+import { ChatIcon, } from '@heroicons/react/outline'
+import LineFriend from './LineFriend'
 
 const PostFooter = () => {
-  const [showPay, setShowPay] = useState(false)
+  const [showWeChatFriend, setShowWeChatFriend] = useState(false)
+  const [showLineFriend, setShowLineFriend] = useState(false)
+
   const { locale } = useRouter()
   const router = useRouter()
   const t = lang[locale]
@@ -19,25 +22,35 @@ const PostFooter = () => {
           {t.LAYOUT.NOTICE_TEXT}
         </div>
         <div className='flex flex-wrap gap-3'>
-          {BLOG.showWeChatPay && (
+          {BLOG.showWeChatFriend && (
             <button
-              onClick={() => setShowPay((showPay) => !showPay)}
+              onClick={() => setShowWeChatFriend((showWeChat) => { setShowLineFriend(false); return !showWeChat })}
               className='flex gap-1 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-sm rounded-lg px-4 py-2'
             >
-              <ThumbUpIcon className='flex flex-col justify-center items-center select-none cursor-pointer relative w-5 h-5' />
-              {t.LAYOUT.PAY_BUTTON}
+              <ChatIcon className='flex flex-col justify-center items-center select-none cursor-pointer relative w-5 h-5' />
+              {t.LAYOUT.WECHAT_BUTTON}
             </button>
           )}
-          <button
+          {BLOG.showLineFriend && (
+            <button
+              onClick={() => setShowLineFriend((showLine) => { setShowWeChatFriend(false); return !showLine })}
+              className='flex gap-1 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-sm rounded-lg px-4 py-2'
+            >
+              <ChatIcon className='flex flex-col justify-center items-center select-none cursor-pointer relative w-5 h-5' />
+              {t.LAYOUT.LINE_BUTTON}
+            </button>
+          )}
+          {/* <button
             onClick={() => router.push(BLOG.path || '/contact')}
             className='flex gap-1 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-sm rounded-lg px-4 py-2'
           >
             <MailIcon className='flex flex-col justify-center items-center select-none cursor-pointer relative w-5 h-5' />
             {t.LAYOUT.NOTICE_BUTTON}
-          </button>
+          </button> */}
         </div>
       </div>
-      {showPay && <WechatPay />}
+      {showWeChatFriend && <WeChatFriend close={setShowWeChatFriend} />}
+      {showLineFriend && <LineFriend close={setShowLineFriend} />}
     </div>
   )
 }

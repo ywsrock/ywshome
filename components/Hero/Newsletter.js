@@ -6,11 +6,18 @@ import { lang } from '@/lib/lang'
 import { useRouter } from 'next/router'
 import { NewspaperIcon, ClipboardCheckIcon } from '@heroicons/react/outline'
 import NotionRenderer from '@/components/Post/NotionRenderer'
+// import Avatar from './NotionAvatar.js'
+import Image from 'next/image'
+const img = require('/public/wsgopher.png')
+
 
 const NewsletterHero = ({ blockMap }) => {
   const [showCopied, setShowCopied] = useState(false)
   const { locale } = useRouter()
   const t = lang[locale]
+  const isShowContactButton = BLOG.showContactButton
+  const isShowRssButton = BLOG.showRssButton
+
 
   const clickCopy = async () => {
     setShowCopied(true)
@@ -32,11 +39,11 @@ const NewsletterHero = ({ blockMap }) => {
           />
           <Social />
           <h2 className='text-xl pt-8 pb-4 font-light text-gray-500 dark:text-day'>
-            {t.HERO.NEWSLETTER.SUBSCRIPTION_HEAD}
+            {t.HERO.NEWSLETTER.LETTER_SUBTEXT}
           </h2>
 
           <div className='flex flex-col sm:flex-row sm:justify-center gap-4'>
-            <Link passHref href={BLOG.telegramChannelUrl} scroll={false} className='flex'>
+            <Link passHref href={BLOG.telegramChannelUrl} scroll={false} className='flex' style={{ display: isShowContactButton ? "inline" : "none" }} >
               <button className='w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -55,7 +62,7 @@ const NewsletterHero = ({ blockMap }) => {
                 </span>
               </button>
             </Link>
-            {showCopied ? (
+            {isShowRssButton ? showCopied ? (
               <button
                 disabled
                 className='bg-gray-200 dark:bg-gray-600 inline-flex py-3 px-5 rounded-lg items-center'
@@ -89,11 +96,16 @@ const NewsletterHero = ({ blockMap }) => {
                   <span className='font-medium'>{t.HERO.NEWSLETTER.RSS_BUTTON}</span>
                 </span>
               </button>
-            )}
+            ) : <></>}
           </div>
         </div>
-        <div className='w-1/5'>
-          <NewspaperIcon className='object-cover object-center text-gray-500 dark:text-gray-300' />
+        {/* <div className='w-1/5'> */}
+        <div className='w-2/5'>
+          {/* <NewspaperIcon className='object-cover object-center text-gray-500 dark:text-gray-300' /> */}
+          <Image
+            src={img}
+            alt='Avatar'
+          ></Image>
         </div>
       </div>
     </>
