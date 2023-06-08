@@ -4,9 +4,9 @@ const BLOG = {
   email: 'ywsrock@gmail.com',
   link: 'https://www.ywsrock.com',
   newsletter: 'Forever Eighteen',
-  description: 'my home page',
+  description: 'My home page',
   lang: 'en-US', // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES']
-  timezone: 'Asia/Shanghai', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
+  timezone: 'Asia/Tokyo', // See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for all options.
   appearance: 'auto', // ['light', 'dark', 'auto'],
   font: 'sans-serif', // ['sans-serif', 'serif']
   lightBackground: '#F6F8FA', // use hex value, don't forget '#' e.g #fffefc
@@ -17,7 +17,7 @@ const BLOG = {
   sortByDate: true,
   pagesShow: {
     newsletter: true,
-    notes: true,
+    notes: false,
     projects: true,
     contact: true,
     books: true,
