@@ -15,7 +15,8 @@ export async function getStaticProps() {
     console.log('[INFO] Hide Craft Table Header: ', deleteTitleBlock.length, deleteIndexBlock.length)
   }
 
-  const heros = await getAllPosts({ onlyHidden: true })
+  // const heros = await getAllPosts({ onlyHidden: true })
+  const heros = await getAllPosts({ onlyPost: true, onlyHidden: false, onlyPage: false, onlyNewsletter: true })
   const hero = heros.find((t) => t.slug === 'notes')
 
   let blockMap
