@@ -23,6 +23,8 @@ import NProgress from 'nprogress'
 import '@/styles/nprogress.css'
 import Header from '@/components/NavBar/Header'
 import Footer from '@/components/NavBar/Footer'
+import App from 'next/app';
+import Router from 'next/router';
 
 const Ackee = dynamic(() => import('@/components/Common/Ackee'), { ssr: false })
 const Gtag = dynamic(() => import('@/components/Common/Gtag'), { ssr: false })
@@ -30,6 +32,12 @@ const Gtag = dynamic(() => import('@/components/Common/Gtag'), { ssr: false })
 function MyApp({ Component, pageProps }) {
   // https://github.com/vercel/next.js/blob/canary/examples/with-loading/pages/_app.js
   const router = useRouter()
+
+  // useEffect(() => {
+  //   if (router.pathname === '/') {
+  //     router.push('/search');
+  //   }
+  // }, []);
 
   useEffect(() => {
     const handleStart = (url) => {
@@ -67,13 +75,12 @@ function MyApp({ Component, pageProps }) {
           fullWidth={pageProps.post ? pageProps.post.fullWidth : false}
         />
         <TransitionEffect>
-            <div
-              className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${
-                BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
+          <div
+            className={`min-h-[calc(100vh-14rem)] md:min-h-[calc(100vh-18rem)] ${BLOG.font === 'serif' ? 'font-serif' : 'font-sans'
               }`}
-            >
-              <Component {...pageProps} />
-            </div>
+          >
+            <Component {...pageProps} />
+          </div>
         </TransitionEffect>
         <Footer fullWidth={pageProps.post ? pageProps.post.fullWidth : false} />
       </ThemeProvider>

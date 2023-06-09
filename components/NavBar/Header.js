@@ -32,12 +32,26 @@ const NavBar = () => {
 
   const links = [
     {
+      id: 4,
+      name: t.NAV.SEARCH,
+      to: '/search',
+      icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
+      show: true
+    },
+    {
       id: 0,
       name: t.NAV.INDEX,
       to: BLOG.path || '/',
       icon: <HomeIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
     },
+    // {
+    //   id: 0,
+    //   name: t.NAV.INDEX,
+    //   to: BLOG.path || '/',
+    //   icon: <HomeIcon className='inline-block mb-1 h-5 w-5' />,
+    //   show: true
+    // },
     {
       id: 1,
       name: t.NAV.NEWSLETTER,
@@ -59,13 +73,13 @@ const NavBar = () => {
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.projects
     },
-    {
-      id: 4,
-      name: t.NAV.SEARCH,
-      to: '/search',
-      icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
-      show: true
-    }
+    // {
+    //   id: 4,
+    //   name: t.NAV.SEARCH,
+    //   to: '/search',
+    //   icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
+    //   show: true
+    // }
   ]
   return (
     <motion.div className='flex'>
@@ -76,9 +90,8 @@ const NavBar = () => {
             link.show && (
               <Link passHref href={link.to} key={link.id} scroll={false}>
                 <li
-                  className={`${
-                    activeMenu === link.to ? 'bg-gray-200 dark:bg-gray-700' : ''
-                  } hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block py-1 px-2 nav`}
+                  className={`${activeMenu === link.to ? 'bg-gray-200 dark:bg-gray-700' : ''
+                    } hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block py-1 px-2 nav`}
                 >
                   <div className='font-light'>
                     {link.icon}
@@ -166,9 +179,8 @@ const Header = ({ navBarTitle, fullWidth }) => {
     <>
       <div className='observer-element h-4 md:h-12' ref={sentinelRef}></div>
       <div
-        className={`sticky-nav m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 ${
-          !fullWidth ? 'max-w-3xl px-4' : 'px-4 md:px-24'
-        }`}
+        className={`sticky-nav m-auto w-full h-6 flex flex-row justify-between items-center mb-2 md:mb-12 py-8 bg-opacity-60 ${!fullWidth ? 'max-w-3xl px-4' : 'px-4 md:px-24'
+          }`}
         id='sticky-nav'
         ref={navRef}
       >
@@ -180,17 +192,15 @@ const Header = ({ navBarTitle, fullWidth }) => {
           </Link>
           {navBarTitle ? (
             <p
-              className={`ml-2 font-medium ${
-                !showTitle ? 'hidden' : 'hidden xl:block'
-              }`}
+              className={`ml-2 font-medium ${!showTitle ? 'hidden' : 'hidden xl:block'
+                }`}
             >
               {navBarTitle}
             </p>
           ) : (
             <p
-              className={`ml-2 font-medium ${
-                !showTitle ? 'hidden' : 'hidden xl:block'
-              }`}
+              className={`ml-2 font-medium ${!showTitle ? 'hidden' : 'hidden xl:block'
+                }`}
             >
               {BLOG.title},{' '}
               <span className='font-normal'>{BLOG.description}</span>
