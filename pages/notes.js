@@ -16,7 +16,7 @@ export async function getStaticProps() {
   }
 
   // const heros = await getAllPosts({ onlyHidden: true })
-  const heros = await getAllPosts({ onlyPost: true, onlyHidden: false, onlyPage: false, onlyNewsletter: true })
+  const heros = await getAllPosts({ onlyPost: false, onlyHidden: true, onlyPage: false, onlyNewsletter: false })
   const hero = heros.find((t) => t.slug === 'notes')
 
   let blockMap
