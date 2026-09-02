@@ -16,7 +16,6 @@ const components = {
         import('prismjs/components/prism-c'),
         import('prismjs/components/prism-cpp'),
         import('prismjs/components/prism-docker'),
-        import('prismjs/components/prism-js-templates'),
         import('prismjs/components/prism-diff'),
         import('prismjs/components/prism-git'),
         import('prismjs/components/prism-go'),

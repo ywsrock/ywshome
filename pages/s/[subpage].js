@@ -3,8 +3,7 @@ import Layout from '@/layouts/layout'
 import { getAllPosts, getPostBlocks } from '@/lib/notion'
 import { useRouter } from 'next/router'
 
-import { getAllPagesInSpace, getPageBreadcrumbs, idToUuid } from 'notion-utils'
-import { defaultMapPageUrl } from 'react-notion-x'
+import { getAllPagesInSpace, getPageBreadcrumbs, idToUuid, defaultMapPageUrl, getBlockValue } from 'notion-utils'
 
 import Loading from '@/components/Loading'
 import NotFound from '@/components/NotFound'
@@ -93,8 +92,9 @@ export async function getStaticProps({ params: { subpage } }) {
     // When page block space_id = NOTION_SPACES_ID
     let allowed = false
     Object.values(page.block).forEach(block => {
-      if (!allowed && block.value && block.value.space_id) {
-        allowed = NOTION_SPACES_ID.includes(block.value.space_id)
+      const blockValue = getBlockValue(block)
+      if (!allowed && blockValue?.space_id) {
+        allowed = NOTION_SPACES_ID.includes(blockValue.space_id)
       }
     })
     return allowed
