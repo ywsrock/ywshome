@@ -2,6 +2,9 @@
   "name": "notionic",
   "version": "3.0.0",
   "packageManager": "pnpm@10.17.0",
+  "engines": {
+    "node": ">=20"
+  },
   "homepage": "https://www.ywsrock.com",
   "license": "MIT",
   "repository": {
