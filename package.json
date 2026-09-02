@@ -61,5 +61,11 @@
   "bugs": {
     "url": "https://github.com/izuolan/notionic/issues",
     "email": "i@zuolan.me"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }
