@@ -32,26 +32,12 @@ const NavBar = () => {
 
   const links = [
     {
-      id: 4,
-      name: t.NAV.SEARCH,
-      to: '/search',
-      icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
-      show: true
-    },
-    {
       id: 0,
       name: t.NAV.INDEX,
       to: BLOG.path || '/',
       icon: <HomeIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
     },
-    // {
-    //   id: 0,
-    //   name: t.NAV.INDEX,
-    //   to: BLOG.path || '/',
-    //   icon: <HomeIcon className='inline-block mb-1 h-5 w-5' />,
-    //   show: true
-    // },
     {
       id: 1,
       name: t.NAV.NEWSLETTER,
@@ -73,13 +59,13 @@ const NavBar = () => {
       icon: <SparklesIcon className='inline-block mb-1 h-5 w-5' />,
       show: BLOG.pagesShow.projects
     },
-    // {
-    //   id: 4,
-    //   name: t.NAV.SEARCH,
-    //   to: '/search',
-    //   icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
-    //   show: true
-    // }
+    {
+      id: 4,
+      name: t.NAV.SEARCH,
+      to: '/search',
+      icon: <SearchIcon className='inline-block mb-1 h-5 w-5' />,
+      show: true
+    }
   ]
   return (
     <motion.div className='flex'>
@@ -90,8 +76,10 @@ const NavBar = () => {
             link.show && (
               <Link passHref href={link.to} key={link.id} scroll={false}>
                 <li
-                  className={`${activeMenu === link.to ? 'bg-gray-200 dark:bg-gray-700' : ''
-                    } hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded-lg block py-1 px-2 nav`}
+                  className={`nav block cursor-pointer rounded-lg px-2 py-1 transition-colors duration-150 hover:bg-gray-200 dark:hover:bg-gray-700 ${activeMenu === link.to
+                    ? 'bg-accent-50 text-accent-600 dark:bg-accent-500/10 dark:text-accent-400'
+                    : ''
+                    }`}
                 >
                   <div className='font-light'>
                     {link.icon}
@@ -119,18 +107,18 @@ const NavBar = () => {
           <MenuIcon className='inline-block mb-1 h-5 w-5' />
         </button>
         {showMenu && (
-          <div className='absolute right-0 w-40 mr-4 mt-2 bg-white dark:bg-gray-700 divide-y divide-gray-200 dark:divide-gray-600 rounded-md shadow-lg outline-none'>
-            <div className='py-1'>
+          <div className='absolute right-0 mr-4 mt-2 w-48 divide-y divide-gray-100 rounded-xl border border-gray-100 bg-white shadow-lg outline-none dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800'>
+            <div className='py-1.5'>
               {links.map(
                 (link) =>
                   link.show && (
                     <Link passHref key={link.id} href={link.to} scroll={false}>
                       <button
                         onClick={() => setShowMenu((showMenu) => !showMenu)}
-                        className='text-left hover:bg-gray-100 dark:hover:bg-gray-600 font-light block justify-between w-full px-4 py-2 leading-5'
+                        className='flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm font-light text-gray-700 transition-colors duration-150 hover:bg-accent-50 hover:text-accent-600 dark:text-gray-200 dark:hover:bg-accent-500/10 dark:hover:text-accent-400'
                       >
                         {link.icon}
-                        <span className='m-1'>{link.name}</span>
+                        <span>{link.name}</span>
                       </button>
                     </Link>
                   )
@@ -187,7 +175,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
         <div className='flex items-center'>
           <Link passHref href='/' scroll={false} aria-label={BLOG.title}>
             <motion.div>
-              <Logo className='h-6 hover:text-blue-500 dark:hover:text-blue-500 fill-current' />
+              <Logo className='h-6 hover:text-accent-500 dark:hover:text-accent-500 fill-current' />
             </motion.div>
           </Link>
           {navBarTitle ? (
