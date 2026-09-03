@@ -4,6 +4,9 @@ module.exports = {
     defaultLocale: 'ja',
     localeDetection: false
   },
+  // Notion image preview generation (network fetch + sharp encode per image)
+  // can exceed the default 60s on resource-constrained build machines.
+  staticPageGenerationTimeout: 300,
   transpilePackages: ['dayjs'],
   images: {
     domains: ['api.craft.do', 'www.notion.so', 'images.unsplash.com', 's3.us-west-2.amazonaws.com']
